@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import "./app.css";
+import "./App.css";
 
 function App() {
     const [play, setPlay] = useState(false);
