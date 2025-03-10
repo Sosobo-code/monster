@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import "./app.css";
 
 function App() {
@@ -40,33 +40,33 @@ function App() {
 
     return (
         <div className="video-container">
-            {/* Text container only visible before button appears */}
+            {/* Text container */}
             {!isButtonVisible && (
                 <div className="text-container">
-                    {texts.slice(0, fadeTextIndex + 1).map((text, index) => (
+                    <AnimatePresence mode="wait">
                         <motion.div
-                            key={index}
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            transition={{ duration: 2, ease: "easeInOut" }}
-                            className="fade-text"
+                            key={fadeTextIndex}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -20 }}
+                            transition={{ duration: 1, ease: "easeInOut" }}
+                            className="text-content"
                         >
-                            {text}
+                            {texts[fadeTextIndex]}
                         </motion.div>
-                    ))}
+                    </AnimatePresence>
                 </div>
             )}
 
-            {/* Button appears after last text */}
+            {/* Button with smooth entrance */}
             {isButtonVisible && !play && (
                 <div className="centered-button-container">
                     <motion.button
                         className="play-button"
                         onClick={handlePlay}
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 1, ease: "easeInOut" }}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, ease: "easeInOut" }}
                     >
                         {texts[fadeTextIndex]}
                     </motion.button>
@@ -78,14 +78,7 @@ function App() {
                     ref={videoRef}
                     src="/Opening.mp4"
                     autoPlay
-                    style={{
-                        width: "100%",
-                        height: "100%",
-                        objectFit: "cover",
-                        position: "absolute",
-                        top: 0,
-                        left: 0,
-                    }}
+                    className="video-container"
                 />
             )}
 
