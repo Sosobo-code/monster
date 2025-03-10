@@ -9,36 +9,41 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: black; /* Ensures a smooth transition */
+  background-color: black;
 }
 
-/* Text container (fading text) */
+
 .text-container {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  font-size: 2rem; /* Adjust font size as needed */
-  color: white;
+  font-size: 2rem;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none; /* Allows clicks through to button */
 }
 
-/* Centered Button Container */
+
 .centered-button-container {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
+
 }
 
-/* Play Button */
+
 .play-button {
   padding: 20px 40px;
   font-size: 20px;
   cursor: pointer;
   border: none;
-  font-family: matrix-ii, serif;
   background-color: rgba(0, 0, 0, 0.8);
   color: #fff;
   border-radius: 10px;
@@ -51,43 +56,12 @@
   bottom: 0;
   left: 0;
   width: 0;
-  height: 2px; /* Thickness of the underline */
-  background-color: currentColor; /* Color of the text */
-  transition: width 0.3s ease; /* Animation duration and easing */
+  height: 2px;
+  background-color: currentColor;
+  transition: width 0.3s ease;
 }
 
 .play-button:hover::after {
-  width: 100%;
-}
-
-/* Freeze Frame - optional UI for video freeze */
-.freeze-frame {
-  position: relative;
-  top: 20px;
-  padding: 20px;
-  font-size: 50px;
-  font-weight: bold;
-  font-family: "matrix-ii", serif;
-  color: #ffe0e0;
-  background: linear-gradient(45deg, #8b3e3e, #c8a7a7);
-  text-align: center;
-  background-color: rgba(0, 0, 0, 0.6);
-  border-radius: 10px;
-  width: 90%;
-  margin-top: 20px; /* Adds some space between the video and text */
-  opacity: 0; /* Initially invisible */
-  transform: scale(0.5); /* Start small */
-  animation: scaleUp 3.5s forwards; /* Scale animation */
-}
-
-/* Center text under the video */
-.freeze-frame h1 {
-  margin: 0;
-}
-
-.text-container {
-  /* Ensures proper positioning context for absolute children */
-  position: relative;
   width: 100%;
 }
 
@@ -108,19 +82,6 @@
 
 .play-button:hover {
   transform: translateY(-3px);
-}
-
-.text-container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  pointer-events: none; /* Allows clicks through to button */
 }
 
 .text-content {

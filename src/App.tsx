@@ -11,12 +11,12 @@ function App() {
 
     const texts = [
         "What makes a monster?",
-        "Nurture, Nature?",
-        "Really? What makes a monster?",
+        "Nature, Nurture?",
         "Does a monster exist inside all of us?",
         "A monster.",
-        "A true ever-growing monster.",
-        "What makes a monster?"
+        "An ever-growing monster.",
+        "Look at me, Look at me. The monster inside of me is growing bigger.",
+        "What makes a monster?",
     ];
 
     const handlePlay = () => {
